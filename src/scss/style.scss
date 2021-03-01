@@ -1,0 +1,168 @@
+// DONT FORGET TO CHANGE NAMES FOR ONE FAMILY EX. (LatoBold => Lato; LatoNormal => Lato) AND IF BOLD SET '700'
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url('../fonts/#{$file_name}.woff') format('woff'),
+      url('../fonts/#{$file_name}.woff2') format('woff2');
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+@import 'fonts';
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.left {
+  text-align: right;
+}
+
+.header__body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100px;
+
+  &-heading {
+    font-size: 32px;
+  }
+
+  &-subheading {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.main {
+  padding: 30px 0px 0px;
+  &__section {
+    position: relative;
+    width: 100%;
+
+    &-body {
+      margin-left: auto;
+      width: 97%;
+      position: relative;
+
+      background: rgb(255, 242, 204);
+      background: linear-gradient(
+        90deg,
+        rgba(255, 242, 204, 1) 0%,
+        rgba(222, 234, 246, 1) 80%
+      );
+
+      min-height: 100px;
+      padding: 10px;
+      border-top: 2px solid rgb(211, 211, 211);
+    }
+
+    &-col {
+      position: absolute;
+      width: 32px;
+      min-height: 125px;
+      height: 112%;
+      top: -15px;
+      left: -40px;
+      background-color: #dae3f4;
+      border-right: 2px solid #7794ca;
+      border-left: 2px solid #7794ca;
+
+      z-index: 2;
+    }
+
+    &-year {
+      position: absolute;
+      top: -25px;
+      left: -90px;
+      border: 1px black solid;
+      box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+      padding: 15px;
+      z-index: 3;
+      color: #4569aa;
+      font-weight: 700;
+      background-color: #fff;
+    }
+
+    &-autor {
+      position: absolute;
+      top: -25px;
+      right: -10px;
+      font-size: 17px;
+      background-color: #fbe5d6;
+      padding: 5px 15px 10px 10px;
+      line-height: 1.8;
+      font-weight: 500;
+    }
+
+    &-links {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &-link {
+      margin: 10px;
+    }
+  }
+
+  &__section:first-child {
+    .main__section-col {
+      border-top: 2px solid #7794ca;
+    }
+  }
+
+  &__section:last-child {
+    .main__section-body {
+      border-bottom: 2px solid rgb(211, 211, 211);
+    }
+
+    .triangle {
+      position: absolute;
+      bottom: -36px;
+      left: -48px;
+      width: 0;
+      height: 0;
+      border-left: 24px solid transparent;
+      border-right: 24px solid transparent;
+
+      border-top: 24px solid #7794ca;
+      z-index: 1;
+    }
+
+    .inner-triangle {
+      position: relative;
+      top: -22px;
+      left: -20px;
+
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+
+      border-top: 20px solid #dae3f4;
+    }
+  }
+}
